@@ -39,7 +39,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\AutoprimaryApi(
     $config
 );
 $serverId = 'serverId_example'; // string | The id of the server to manage the list of autoprimaries on
-$autoprimary = new \Storm\PowerDnsClient\Model\AutoprimaryServer(); // \Storm\PowerDnsClient\Model\AutoprimaryServer
+$autoprimary = new \Storm\PowerDnsClient\Model\Autoprimary(); // \Storm\PowerDnsClient\Model\Autoprimary | autoprimary entry to add
 
 try {
     $apiInstance->createAutoprimary($serverId, $autoprimary);
@@ -53,7 +53,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **string**| The id of the server to manage the list of autoprimaries on |
- **autoprimary** | [**\Storm\PowerDnsClient\Model\AutoprimaryServer**](../Model/AutoprimaryServer.md)|  |
+ **autoprimary** | [**\Storm\PowerDnsClient\Model\Autoprimary**](../Model/Autoprimary.md)| autoprimary entry to add |
 
 ### Return type
 
@@ -138,7 +138,7 @@ void (empty response body)
 ## `getAutoprimaries()`
 
 ```php
-getAutoprimaries($serverId): object
+getAutoprimaries($serverId): \Storm\PowerDnsClient\Model\Autoprimary
 ```
 
 Get a list of autoprimaries
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\Autoprimary**](../Model/Autoprimary.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Metadata1
+ * SimpleStatisticItem
  *
  * PHP version 7.3
  *
@@ -32,10 +32,9 @@ use \ArrayAccess;
 use \Storm\PowerDnsClient\ObjectSerializer;
 
 /**
- * Metadata1 Class Doc Comment
+ * SimpleStatisticItem Class Doc Comment
  *
  * @category Class
- * @description Represents zone metadata
  * @package  Storm\PowerDnsClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +42,7 @@ use \Storm\PowerDnsClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class SimpleStatisticItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +51,7 @@ class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Metadata_1';
+    protected static $openAPIModelName = 'SimpleStatisticItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +59,8 @@ class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'kind' => 'string',
-        'metadata' => 'string[]'
+        'name' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -72,8 +71,8 @@ class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'kind' => null,
-        'metadata' => null
+        'name' => null,
+        'value' => null
     ];
 
     /**
@@ -103,8 +102,8 @@ class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'kind' => 'kind',
-        'metadata' => 'metadata'
+        'name' => 'name',
+        'value' => 'value'
     ];
 
     /**
@@ -113,8 +112,8 @@ class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'kind' => 'setKind',
-        'metadata' => 'setMetadata'
+        'name' => 'setName',
+        'value' => 'setValue'
     ];
 
     /**
@@ -123,8 +122,8 @@ class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'kind' => 'getKind',
-        'metadata' => 'getMetadata'
+        'name' => 'getName',
+        'value' => 'getValue'
     ];
 
     /**
@@ -184,8 +183,8 @@ class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['kind'] = $data['kind'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -213,49 +212,49 @@ class Metadata1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets kind
+     * Gets name
      *
      * @return string|null
      */
-    public function getKind()
+    public function getName()
     {
-        return $this->container['kind'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets kind
+     * Sets name
      *
-     * @param string|null $kind Name of the metadata
+     * @param string|null $name Item name
      *
      * @return self
      */
-    public function setKind($kind)
+    public function setName($name)
     {
-        $this->container['kind'] = $kind;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets value
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getMetadata()
+    public function getValue()
     {
-        return $this->container['metadata'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets metadata
+     * Sets value
      *
-     * @param string[]|null $metadata Array with all values for this metadata kind.
+     * @param string|null $value Item value
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setValue($value)
     {
-        $this->container['metadata'] = $metadata;
+        $this->container['value'] = $value;
 
         return $this;
     }

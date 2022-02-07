@@ -125,7 +125,7 @@ class ZonesApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string|object|object|object|object
+     * @return string|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function axfrExportZone($serverId, $zoneId)
     {
@@ -143,7 +143,7 @@ class ZonesApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function axfrExportZoneWithHttpInfo($serverId, $zoneId)
     {
@@ -198,50 +198,50 @@ class ZonesApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -273,7 +273,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -281,7 +281,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -289,7 +289,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -297,7 +297,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -565,7 +565,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -573,7 +573,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -581,7 +581,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -589,7 +589,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -778,12 +778,12 @@ class ZonesApi
      * Creates a new domain, returns the Zone on creation.
      *
      * @param  string $serverId The id of the server to retrieve (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone1 $zoneStruct zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      * @param  bool $rrsets “true” (default) or “false”, whether to include the “rrsets” in the response Zone object. (optional, default to true)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\Zone|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function createZone($serverId, $zoneStruct, $rrsets = true)
     {
@@ -797,12 +797,12 @@ class ZonesApi
      * Creates a new domain, returns the Zone on creation.
      *
      * @param  string $serverId The id of the server to retrieve (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone1 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      * @param  bool $rrsets “true” (default) or “false”, whether to include the “rrsets” in the response Zone object. (optional, default to true)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\Zone|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createZoneWithHttpInfo($serverId, $zoneStruct, $rrsets = true)
     {
@@ -845,68 +845,68 @@ class ZonesApi
 
             switch($statusCode) {
                 case 201:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Zone' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Zone', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\Zone';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -924,7 +924,7 @@ class ZonesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Zone',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -932,7 +932,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -940,7 +940,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -948,7 +948,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -956,7 +956,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -972,7 +972,7 @@ class ZonesApi
      * Creates a new domain, returns the Zone on creation.
      *
      * @param  string $serverId The id of the server to retrieve (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone1 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      * @param  bool $rrsets “true” (default) or “false”, whether to include the “rrsets” in the response Zone object. (optional, default to true)
      *
      * @throws \InvalidArgumentException
@@ -994,7 +994,7 @@ class ZonesApi
      * Creates a new domain, returns the Zone on creation.
      *
      * @param  string $serverId The id of the server to retrieve (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone1 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      * @param  bool $rrsets “true” (default) or “false”, whether to include the “rrsets” in the response Zone object. (optional, default to true)
      *
      * @throws \InvalidArgumentException
@@ -1002,7 +1002,7 @@ class ZonesApi
      */
     public function createZoneAsyncWithHttpInfo($serverId, $zoneStruct, $rrsets = true)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\Zone';
         $request = $this->createZoneRequest($serverId, $zoneStruct, $rrsets);
 
         return $this->client
@@ -1042,7 +1042,7 @@ class ZonesApi
      * Create request for operation 'createZone'
      *
      * @param  string $serverId The id of the server to retrieve (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone1 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      * @param  bool $rrsets “true” (default) or “false”, whether to include the “rrsets” in the response Zone object. (optional, default to true)
      *
      * @throws \InvalidArgumentException
@@ -1071,15 +1071,11 @@ class ZonesApi
         $multipart = false;
 
         // query params
+        if (is_array($rrsets)) {
+            $rrsets = ObjectSerializer::serializeCollection($rrsets, '', true);
+        }
         if ($rrsets !== null) {
-            if('form' === 'form' && is_array($rrsets)) {
-                foreach($rrsets as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['rrsets'] = $rrsets;
-            }
+            $queryParams['rrsets'] = $rrsets;
         }
 
 
@@ -1236,7 +1232,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1244,7 +1240,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1252,7 +1248,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1260,7 +1256,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1454,7 +1450,7 @@ class ZonesApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\Zone|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function listZone($serverId, $zoneId, $rrsets = true)
     {
@@ -1473,7 +1469,7 @@ class ZonesApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\Zone|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listZoneWithHttpInfo($serverId, $zoneId, $rrsets = true)
     {
@@ -1516,68 +1512,68 @@ class ZonesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Zone' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Zone', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\Zone';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1595,7 +1591,7 @@ class ZonesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Zone',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1603,7 +1599,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1611,7 +1607,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1619,7 +1615,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1627,7 +1623,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1673,7 +1669,7 @@ class ZonesApi
      */
     public function listZoneAsyncWithHttpInfo($serverId, $zoneId, $rrsets = true)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\Zone';
         $request = $this->listZoneRequest($serverId, $zoneId, $rrsets);
 
         return $this->client
@@ -1742,15 +1738,11 @@ class ZonesApi
         $multipart = false;
 
         // query params
+        if (is_array($rrsets)) {
+            $rrsets = ObjectSerializer::serializeCollection($rrsets, '', true);
+        }
         if ($rrsets !== null) {
-            if('form' === 'form' && is_array($rrsets)) {
-                foreach($rrsets as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['rrsets'] = $rrsets;
-            }
+            $queryParams['rrsets'] = $rrsets;
         }
 
 
@@ -1845,7 +1837,7 @@ class ZonesApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Storm\PowerDnsClient\Model\Zone[]|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\Zone[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function listZones($serverId, $zone = null, $dnssec = true)
     {
@@ -1864,7 +1856,7 @@ class ZonesApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Storm\PowerDnsClient\Model\Zone[]|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\Zone[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listZonesWithHttpInfo($serverId, $zone = null, $dnssec = true)
     {
@@ -1919,50 +1911,50 @@ class ZonesApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1994,7 +1986,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2002,7 +1994,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2010,7 +2002,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2018,7 +2010,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2127,26 +2119,18 @@ class ZonesApi
         $multipart = false;
 
         // query params
+        if (is_array($zone)) {
+            $zone = ObjectSerializer::serializeCollection($zone, '', true);
+        }
         if ($zone !== null) {
-            if('form' === 'form' && is_array($zone)) {
-                foreach($zone as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['zone'] = $zone;
-            }
+            $queryParams['zone'] = $zone;
         }
         // query params
+        if (is_array($dnssec)) {
+            $dnssec = ObjectSerializer::serializeCollection($dnssec, '', true);
+        }
         if ($dnssec !== null) {
-            if('form' === 'form' && is_array($dnssec)) {
-                foreach($dnssec as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['dnssec'] = $dnssec;
-            }
+            $queryParams['dnssec'] = $dnssec;
         }
 
 
@@ -2297,7 +2281,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2305,7 +2289,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2313,7 +2297,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2321,7 +2305,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2511,7 +2495,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone3 $zoneStruct zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2529,7 +2513,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone3 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2581,7 +2565,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2589,7 +2573,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2597,7 +2581,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2605,7 +2589,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2622,7 +2606,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone3 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2644,7 +2628,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone3 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2682,7 +2666,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone3 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2810,7 +2794,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone2 $zoneStruct zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2828,7 +2812,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone2 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2880,7 +2864,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2888,7 +2872,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2896,7 +2880,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2904,7 +2888,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2921,7 +2905,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone2 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2943,7 +2927,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone2 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2981,7 +2965,7 @@ class ZonesApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Zone2 $zoneStruct (required)
+     * @param  \Storm\PowerDnsClient\Model\Zone $zoneStruct The zone struct to patch with (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3112,7 +3096,7 @@ class ZonesApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string|object|object|object|object
+     * @return string|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function rectifyZone($serverId, $zoneId)
     {
@@ -3130,7 +3114,7 @@ class ZonesApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function rectifyZoneWithHttpInfo($serverId, $zoneId)
     {
@@ -3185,50 +3169,50 @@ class ZonesApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3260,7 +3244,7 @@ class ZonesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3268,7 +3252,7 @@ class ZonesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3276,7 +3260,7 @@ class ZonesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3284,7 +3268,7 @@ class ZonesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

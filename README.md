@@ -116,26 +116,26 @@ Class | Method | HTTP request | Description
 
 ## Models
 
-- [AutoprimaryServer](docs/Model/AutoprimaryServer.md)
+- [Autoprimary](docs/Model/Autoprimary.md)
+- [CacheFlushResult](docs/Model/CacheFlushResult.md)
 - [Comment](docs/Model/Comment.md)
 - [ConfigSetting](docs/Model/ConfigSetting.md)
 - [Cryptokey](docs/Model/Cryptokey.md)
-- [Cryptokey1](docs/Model/Cryptokey1.md)
-- [Cryptokey2](docs/Model/Cryptokey2.md)
+- [Error](docs/Model/Error.md)
+- [MapStatisticItem](docs/Model/MapStatisticItem.md)
 - [Metadata](docs/Model/Metadata.md)
-- [Metadata1](docs/Model/Metadata1.md)
-- [Metadata2](docs/Model/Metadata2.md)
 - [RRSet](docs/Model/RRSet.md)
 - [Record](docs/Model/Record.md)
+- [RingStatisticItem](docs/Model/RingStatisticItem.md)
 - [SearchResult](docs/Model/SearchResult.md)
+- [SearchResultComment](docs/Model/SearchResultComment.md)
+- [SearchResultRecord](docs/Model/SearchResultRecord.md)
+- [SearchResultZone](docs/Model/SearchResultZone.md)
 - [Server](docs/Model/Server.md)
+- [SimpleStatisticItem](docs/Model/SimpleStatisticItem.md)
+- [StatisticItem](docs/Model/StatisticItem.md)
 - [TSIGKey](docs/Model/TSIGKey.md)
-- [TSIGKey1](docs/Model/TSIGKey1.md)
-- [TSIGKey2](docs/Model/TSIGKey2.md)
 - [Zone](docs/Model/Zone.md)
-- [Zone1](docs/Model/Zone1.md)
-- [Zone2](docs/Model/Zone2.md)
-- [Zone3](docs/Model/Zone3.md)
 
 ## Authorization
 

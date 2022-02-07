@@ -42,7 +42,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\ZonemetadataApi(
 );
 $serverId = 'serverId_example'; // string | The id of the server to retrieve
 $zoneId = 'zoneId_example'; // string
-$metadata = new \Storm\PowerDnsClient\Model\Metadata1(); // \Storm\PowerDnsClient\Model\Metadata1
+$metadata = new \Storm\PowerDnsClient\Model\Metadata(); // \Storm\PowerDnsClient\Model\Metadata | Metadata object with list of values to create
 
 try {
     $apiInstance->createMetadata($serverId, $zoneId, $metadata);
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **string**| The id of the server to retrieve |
  **zoneId** | **string**|  |
- **metadata** | [**\Storm\PowerDnsClient\Model\Metadata1**](../Model/Metadata1.md)|  |
+ **metadata** | [**\Storm\PowerDnsClient\Model\Metadata**](../Model/Metadata.md)| Metadata object with list of values to create |
 
 ### Return type
 
@@ -142,7 +142,7 @@ void (empty response body)
 ## `getMetadata()`
 
 ```php
-getMetadata($serverId, $zoneId, $metadataKind): object
+getMetadata($serverId, $zoneId, $metadataKind): \Storm\PowerDnsClient\Model\Metadata
 ```
 
 Get the content of a single kind of domain metadata as a Metadata object.
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\Metadata**](../Model/Metadata.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 ## `modifyMetadata()`
 
 ```php
-modifyMetadata($serverId, $zoneId, $metadataKind, $metadata): object
+modifyMetadata($serverId, $zoneId, $metadataKind, $metadata): \Storm\PowerDnsClient\Model\Metadata
 ```
 
 Replace the content of a single kind of domain metadata.
@@ -297,7 +297,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\ZonemetadataApi(
 $serverId = 'serverId_example'; // string | The id of the server to retrieve
 $zoneId = 'zoneId_example'; // string
 $metadataKind = 'metadataKind_example'; // string | The kind of metadata
-$metadata = new \Storm\PowerDnsClient\Model\Metadata2(); // \Storm\PowerDnsClient\Model\Metadata2
+$metadata = new \Storm\PowerDnsClient\Model\Metadata(); // \Storm\PowerDnsClient\Model\Metadata | metadata to add/create
 
 try {
     $result = $apiInstance->modifyMetadata($serverId, $zoneId, $metadataKind, $metadata);
@@ -314,11 +314,11 @@ Name | Type | Description  | Notes
  **serverId** | **string**| The id of the server to retrieve |
  **zoneId** | **string**|  |
  **metadataKind** | **string**| The kind of metadata |
- **metadata** | [**\Storm\PowerDnsClient\Model\Metadata2**](../Model/Metadata2.md)|  |
+ **metadata** | [**\Storm\PowerDnsClient\Model\Metadata**](../Model/Metadata.md)| metadata to add/create |
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\Metadata**](../Model/Metadata.md)
 
 ### Authorization
 

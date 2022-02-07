@@ -144,7 +144,7 @@ void (empty response body)
 ## `createZone()`
 
 ```php
-createZone($serverId, $zoneStruct, $rrsets): object
+createZone($serverId, $zoneStruct, $rrsets): \Storm\PowerDnsClient\Model\Zone
 ```
 
 Creates a new domain, returns the Zone on creation.
@@ -169,7 +169,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\ZonesApi(
     $config
 );
 $serverId = 'serverId_example'; // string | The id of the server to retrieve
-$zoneStruct = new \Storm\PowerDnsClient\Model\Zone1(); // \Storm\PowerDnsClient\Model\Zone1
+$zoneStruct = new \Storm\PowerDnsClient\Model\Zone(); // \Storm\PowerDnsClient\Model\Zone | The zone struct to patch with
 $rrsets = true; // bool | “true” (default) or “false”, whether to include the “rrsets” in the response Zone object.
 
 try {
@@ -185,12 +185,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **string**| The id of the server to retrieve |
- **zoneStruct** | [**\Storm\PowerDnsClient\Model\Zone1**](../Model/Zone1.md)|  |
+ **zoneStruct** | [**\Storm\PowerDnsClient\Model\Zone**](../Model/Zone.md)| The zone struct to patch with |
  **rrsets** | **bool**| “true” (default) or “false”, whether to include the “rrsets” in the response Zone object. | [optional] [default to true]
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\Zone**](../Model/Zone.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ void (empty response body)
 ## `listZone()`
 
 ```php
-listZone($serverId, $zoneId, $rrsets): object
+listZone($serverId, $zoneId, $rrsets): \Storm\PowerDnsClient\Model\Zone
 ```
 
 zone managed by a server
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\Zone**](../Model/Zone.md)
 
 ### Authorization
 
@@ -486,7 +486,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\ZonesApi(
 );
 $serverId = 'serverId_example'; // string | The id of the server to retrieve
 $zoneId = 'zoneId_example'; // string
-$zoneStruct = new \Storm\PowerDnsClient\Model\Zone3(); // \Storm\PowerDnsClient\Model\Zone3
+$zoneStruct = new \Storm\PowerDnsClient\Model\Zone(); // \Storm\PowerDnsClient\Model\Zone | The zone struct to patch with
 
 try {
     $apiInstance->patchZone($serverId, $zoneId, $zoneStruct);
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **string**| The id of the server to retrieve |
  **zoneId** | **string**|  |
- **zoneStruct** | [**\Storm\PowerDnsClient\Model\Zone3**](../Model/Zone3.md)|  |
+ **zoneStruct** | [**\Storm\PowerDnsClient\Model\Zone**](../Model/Zone.md)| The zone struct to patch with |
 
 ### Return type
 
@@ -551,7 +551,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\ZonesApi(
 );
 $serverId = 'serverId_example'; // string | The id of the server to retrieve
 $zoneId = 'zoneId_example'; // string
-$zoneStruct = new \Storm\PowerDnsClient\Model\Zone2(); // \Storm\PowerDnsClient\Model\Zone2
+$zoneStruct = new \Storm\PowerDnsClient\Model\Zone(); // \Storm\PowerDnsClient\Model\Zone | The zone struct to patch with
 
 try {
     $apiInstance->putZone($serverId, $zoneId, $zoneStruct);
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **string**| The id of the server to retrieve |
  **zoneId** | **string**|  |
- **zoneStruct** | [**\Storm\PowerDnsClient\Model\Zone2**](../Model/Zone2.md)|  |
+ **zoneStruct** | [**\Storm\PowerDnsClient\Model\Zone**](../Model/Zone.md)| The zone struct to patch with |
 
 ### Return type
 

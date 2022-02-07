@@ -1,6 +1,6 @@
 <?php
 /**
- * TSIGKey1Test
+ * MapStatisticItemTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Storm\PowerDnsClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TSIGKey1Test Class Doc Comment
+ * MapStatisticItemTest Class Doc Comment
  *
  * @category    Class
- * @description A TSIG key that can be used to authenticate NOTIFY, AXFR, and DNSUPDATE queries.
+ * @description MapStatisticItem
  * @package     Storm\PowerDnsClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TSIGKey1Test extends TestCase
+class MapStatisticItemTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class TSIGKey1Test extends TestCase
     }
 
     /**
-     * Test "TSIGKey1"
+     * Test "MapStatisticItem"
      */
-    public function testTSIGKey1()
+    public function testMapStatisticItem()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -89,36 +89,18 @@ class TSIGKey1Test extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "algorithm"
-     */
-    public function testPropertyAlgorithm()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "key"
-     */
-    public function testPropertyKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "type"
      */
     public function testPropertyType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "value"
+     */
+    public function testPropertyValue()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

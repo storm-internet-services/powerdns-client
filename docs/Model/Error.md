@@ -1,10 +1,10 @@
-# # Metadata2
+# # Error
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **string** | Name of the metadata | [optional]
-**metadata** | **string[]** | Array with all values for this metadata kind. | [optional]
+**error** | **string** | A human readable error message |
+**errors** | **string[]** | Optional array of multiple errors encountered during processing | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

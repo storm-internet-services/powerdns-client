@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `createCryptokey()`
 
 ```php
-createCryptokey($serverId, $zoneId, $cryptokey): object
+createCryptokey($serverId, $zoneId, $cryptokey): \Storm\PowerDnsClient\Model\Cryptokey
 ```
 
 Creates a Cryptokey
@@ -42,7 +42,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\ZonecryptokeyApi(
 );
 $serverId = 'serverId_example'; // string | The id of the server to retrieve
 $zoneId = 'zoneId_example'; // string
-$cryptokey = new \Storm\PowerDnsClient\Model\Cryptokey1(); // \Storm\PowerDnsClient\Model\Cryptokey1
+$cryptokey = new \Storm\PowerDnsClient\Model\Cryptokey(); // \Storm\PowerDnsClient\Model\Cryptokey | Add a Cryptokey
 
 try {
     $result = $apiInstance->createCryptokey($serverId, $zoneId, $cryptokey);
@@ -58,11 +58,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **string**| The id of the server to retrieve |
  **zoneId** | **string**|  |
- **cryptokey** | [**\Storm\PowerDnsClient\Model\Cryptokey1**](../Model/Cryptokey1.md)|  |
+ **cryptokey** | [**\Storm\PowerDnsClient\Model\Cryptokey**](../Model/Cryptokey.md)| Add a Cryptokey |
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\Cryptokey**](../Model/Cryptokey.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ void (empty response body)
 ## `getCryptokey()`
 
 ```php
-getCryptokey($serverId, $zoneId, $cryptokeyId): object
+getCryptokey($serverId, $zoneId, $cryptokeyId): \Storm\PowerDnsClient\Model\Cryptokey
 ```
 
 Returns all data about the CryptoKey, including the privatekey.
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\Cryptokey**](../Model/Cryptokey.md)
 
 ### Authorization
 
@@ -296,7 +296,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\ZonecryptokeyApi(
 $serverId = 'serverId_example'; // string | The id of the server to retrieve
 $zoneId = 'zoneId_example'; // string
 $cryptokeyId = 'cryptokeyId_example'; // string | Cryptokey to manipulate
-$cryptokey = new \Storm\PowerDnsClient\Model\Cryptokey2(); // \Storm\PowerDnsClient\Model\Cryptokey2
+$cryptokey = new \Storm\PowerDnsClient\Model\Cryptokey(); // \Storm\PowerDnsClient\Model\Cryptokey | the Cryptokey
 
 try {
     $apiInstance->modifyCryptokey($serverId, $zoneId, $cryptokeyId, $cryptokey);
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
  **serverId** | **string**| The id of the server to retrieve |
  **zoneId** | **string**|  |
  **cryptokeyId** | **string**| Cryptokey to manipulate |
- **cryptokey** | [**\Storm\PowerDnsClient\Model\Cryptokey2**](../Model/Cryptokey2.md)|  |
+ **cryptokey** | [**\Storm\PowerDnsClient\Model\Cryptokey**](../Model/Cryptokey.md)| the Cryptokey |
 
 ### Return type
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * AutoprimaryServerTest
+ * StatisticItemTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Storm\PowerDnsClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AutoprimaryServerTest Class Doc Comment
+ * StatisticItemTest Class Doc Comment
  *
  * @category    Class
- * @description An autoprimary server that can provision new domains.
+ * @description StatisticItem
  * @package     Storm\PowerDnsClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class AutoprimaryServerTest extends TestCase
+class StatisticItemTest extends TestCase
 {
 
     /**
@@ -71,36 +71,36 @@ class AutoprimaryServerTest extends TestCase
     }
 
     /**
-     * Test "AutoprimaryServer"
+     * Test "StatisticItem"
      */
-    public function testAutoprimaryServer()
+    public function testStatisticItem()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "ip"
+     * Test attribute "name"
      */
-    public function testPropertyIp()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "nameserver"
+     * Test attribute "type"
      */
-    public function testPropertyNameserver()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "account"
+     * Test attribute "value"
      */
-    public function testPropertyAccount()
+    public function testPropertyValue()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

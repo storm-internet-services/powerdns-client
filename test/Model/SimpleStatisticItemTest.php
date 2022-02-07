@@ -1,6 +1,6 @@
 <?php
 /**
- * Metadata1Test
+ * SimpleStatisticItemTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Storm\PowerDnsClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Metadata1Test Class Doc Comment
+ * SimpleStatisticItemTest Class Doc Comment
  *
  * @category    Class
- * @description Represents zone metadata
+ * @description SimpleStatisticItem
  * @package     Storm\PowerDnsClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class Metadata1Test extends TestCase
+class SimpleStatisticItemTest extends TestCase
 {
 
     /**
@@ -71,27 +71,27 @@ class Metadata1Test extends TestCase
     }
 
     /**
-     * Test "Metadata1"
+     * Test "SimpleStatisticItem"
      */
-    public function testMetadata1()
+    public function testSimpleStatisticItem()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "kind"
+     * Test attribute "name"
      */
-    public function testPropertyKind()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "metadata"
+     * Test attribute "value"
      */
-    public function testPropertyMetadata()
+    public function testPropertyValue()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

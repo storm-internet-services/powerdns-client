@@ -121,11 +121,11 @@ class TsigkeyApi
      * Add a TSIG key
      *
      * @param  string $serverId The id of the server (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey1 $tsigkey tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey The TSIGKey to add (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\TSIGKey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function createTSIGKey($serverId, $tsigkey)
     {
@@ -139,11 +139,11 @@ class TsigkeyApi
      * Add a TSIG key
      *
      * @param  string $serverId The id of the server (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey1 $tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey The TSIGKey to add (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\TSIGKey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTSIGKeyWithHttpInfo($serverId, $tsigkey)
     {
@@ -186,80 +186,80 @@ class TsigkeyApi
 
             switch($statusCode) {
                 case 201:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\TSIGKey' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\TSIGKey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\TSIGKey';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -277,7 +277,7 @@ class TsigkeyApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\TSIGKey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -285,7 +285,7 @@ class TsigkeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -293,7 +293,7 @@ class TsigkeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -301,7 +301,7 @@ class TsigkeyApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -309,7 +309,7 @@ class TsigkeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -317,7 +317,7 @@ class TsigkeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -333,7 +333,7 @@ class TsigkeyApi
      * Add a TSIG key
      *
      * @param  string $serverId The id of the server (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey1 $tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey The TSIGKey to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -354,14 +354,14 @@ class TsigkeyApi
      * Add a TSIG key
      *
      * @param  string $serverId The id of the server (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey1 $tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey The TSIGKey to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createTSIGKeyAsyncWithHttpInfo($serverId, $tsigkey)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\TSIGKey';
         $request = $this->createTSIGKeyRequest($serverId, $tsigkey);
 
         return $this->client
@@ -401,7 +401,7 @@ class TsigkeyApi
      * Create request for operation 'createTSIGKey'
      *
      * @param  string $serverId The id of the server (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey1 $tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey The TSIGKey to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -583,7 +583,7 @@ class TsigkeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -591,7 +591,7 @@ class TsigkeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -599,7 +599,7 @@ class TsigkeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -607,7 +607,7 @@ class TsigkeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -800,7 +800,7 @@ class TsigkeyApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\TSIGKey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function getTSIGKey($serverId, $tsigkeyId)
     {
@@ -818,7 +818,7 @@ class TsigkeyApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\TSIGKey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTSIGKeyWithHttpInfo($serverId, $tsigkeyId)
     {
@@ -861,68 +861,68 @@ class TsigkeyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\TSIGKey' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\TSIGKey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\TSIGKey';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -940,7 +940,7 @@ class TsigkeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\TSIGKey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -948,7 +948,7 @@ class TsigkeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -956,7 +956,7 @@ class TsigkeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -964,7 +964,7 @@ class TsigkeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -972,7 +972,7 @@ class TsigkeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1016,7 +1016,7 @@ class TsigkeyApi
      */
     public function getTSIGKeyAsyncWithHttpInfo($serverId, $tsigkeyId)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\TSIGKey';
         $request = $this->getTSIGKeyRequest($serverId, $tsigkeyId);
 
         return $this->client
@@ -1174,7 +1174,7 @@ class TsigkeyApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Storm\PowerDnsClient\Model\TSIGKey[]|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\TSIGKey[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function listTSIGKeys($serverId)
     {
@@ -1191,7 +1191,7 @@ class TsigkeyApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Storm\PowerDnsClient\Model\TSIGKey[]|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\TSIGKey[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listTSIGKeysWithHttpInfo($serverId)
     {
@@ -1246,50 +1246,50 @@ class TsigkeyApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1321,7 +1321,7 @@ class TsigkeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1329,7 +1329,7 @@ class TsigkeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1337,7 +1337,7 @@ class TsigkeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1345,7 +1345,7 @@ class TsigkeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1526,11 +1526,11 @@ class TsigkeyApi
      *
      * @param  string $serverId The id of the server to retrieve the key from (required)
      * @param  string $tsigkeyId The id of the TSIGkey. Should match the \&quot;id\&quot; field in the TSIGKey object (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey2 $tsigkey tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey A (possibly stripped down) TSIGKey object with the new values (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\TSIGKey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function putTSIGKey($serverId, $tsigkeyId, $tsigkey)
     {
@@ -1543,11 +1543,11 @@ class TsigkeyApi
      *
      * @param  string $serverId The id of the server to retrieve the key from (required)
      * @param  string $tsigkeyId The id of the TSIGkey. Should match the \&quot;id\&quot; field in the TSIGKey object (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey2 $tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey A (possibly stripped down) TSIGKey object with the new values (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\TSIGKey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function putTSIGKeyWithHttpInfo($serverId, $tsigkeyId, $tsigkey)
     {
@@ -1590,80 +1590,80 @@ class TsigkeyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\TSIGKey' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\TSIGKey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\TSIGKey';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1681,7 +1681,7 @@ class TsigkeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\TSIGKey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1689,7 +1689,7 @@ class TsigkeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1697,7 +1697,7 @@ class TsigkeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1705,7 +1705,7 @@ class TsigkeyApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1713,7 +1713,7 @@ class TsigkeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1721,7 +1721,7 @@ class TsigkeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1736,7 +1736,7 @@ class TsigkeyApi
      *
      * @param  string $serverId The id of the server to retrieve the key from (required)
      * @param  string $tsigkeyId The id of the TSIGkey. Should match the \&quot;id\&quot; field in the TSIGKey object (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey2 $tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey A (possibly stripped down) TSIGKey object with the new values (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1756,14 +1756,14 @@ class TsigkeyApi
      *
      * @param  string $serverId The id of the server to retrieve the key from (required)
      * @param  string $tsigkeyId The id of the TSIGkey. Should match the \&quot;id\&quot; field in the TSIGKey object (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey2 $tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey A (possibly stripped down) TSIGKey object with the new values (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function putTSIGKeyAsyncWithHttpInfo($serverId, $tsigkeyId, $tsigkey)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\TSIGKey';
         $request = $this->putTSIGKeyRequest($serverId, $tsigkeyId, $tsigkey);
 
         return $this->client
@@ -1804,7 +1804,7 @@ class TsigkeyApi
      *
      * @param  string $serverId The id of the server to retrieve the key from (required)
      * @param  string $tsigkeyId The id of the TSIGkey. Should match the \&quot;id\&quot; field in the TSIGKey object (required)
-     * @param  \Storm\PowerDnsClient\Model\TSIGKey2 $tsigkey (required)
+     * @param  \Storm\PowerDnsClient\Model\TSIGKey $tsigkey A (possibly stripped down) TSIGKey object with the new values (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

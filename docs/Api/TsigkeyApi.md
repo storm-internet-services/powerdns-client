@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `createTSIGKey()`
 
 ```php
-createTSIGKey($serverId, $tsigkey): object
+createTSIGKey($serverId, $tsigkey): \Storm\PowerDnsClient\Model\TSIGKey
 ```
 
 Add a TSIG key
@@ -41,7 +41,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\TsigkeyApi(
     $config
 );
 $serverId = 'serverId_example'; // string | The id of the server
-$tsigkey = new \Storm\PowerDnsClient\Model\TSIGKey1(); // \Storm\PowerDnsClient\Model\TSIGKey1
+$tsigkey = new \Storm\PowerDnsClient\Model\TSIGKey(); // \Storm\PowerDnsClient\Model\TSIGKey | The TSIGKey to add
 
 try {
     $result = $apiInstance->createTSIGKey($serverId, $tsigkey);
@@ -56,11 +56,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **string**| The id of the server |
- **tsigkey** | [**\Storm\PowerDnsClient\Model\TSIGKey1**](../Model/TSIGKey1.md)|  |
+ **tsigkey** | [**\Storm\PowerDnsClient\Model\TSIGKey**](../Model/TSIGKey.md)| The TSIGKey to add |
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\TSIGKey**](../Model/TSIGKey.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ void (empty response body)
 ## `getTSIGKey()`
 
 ```php
-getTSIGKey($serverId, $tsigkeyId): object
+getTSIGKey($serverId, $tsigkeyId): \Storm\PowerDnsClient\Model\TSIGKey
 ```
 
 Get a specific TSIGKeys on the server, including the actual key
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\TSIGKey**](../Model/TSIGKey.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 ## `putTSIGKey()`
 
 ```php
-putTSIGKey($serverId, $tsigkeyId, $tsigkey): object
+putTSIGKey($serverId, $tsigkeyId, $tsigkey): \Storm\PowerDnsClient\Model\TSIGKey
 ```
 
 
@@ -289,7 +289,7 @@ $apiInstance = new Storm\PowerDnsClient\Api\TsigkeyApi(
 );
 $serverId = 'serverId_example'; // string | The id of the server to retrieve the key from
 $tsigkeyId = 'tsigkeyId_example'; // string | The id of the TSIGkey. Should match the \"id\" field in the TSIGKey object
-$tsigkey = new \Storm\PowerDnsClient\Model\TSIGKey2(); // \Storm\PowerDnsClient\Model\TSIGKey2
+$tsigkey = new \Storm\PowerDnsClient\Model\TSIGKey(); // \Storm\PowerDnsClient\Model\TSIGKey | A (possibly stripped down) TSIGKey object with the new values
 
 try {
     $result = $apiInstance->putTSIGKey($serverId, $tsigkeyId, $tsigkey);
@@ -305,11 +305,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **string**| The id of the server to retrieve the key from |
  **tsigkeyId** | **string**| The id of the TSIGkey. Should match the \&quot;id\&quot; field in the TSIGKey object |
- **tsigkey** | [**\Storm\PowerDnsClient\Model\TSIGKey2**](../Model/TSIGKey2.md)|  |
+ **tsigkey** | [**\Storm\PowerDnsClient\Model\TSIGKey**](../Model/TSIGKey.md)| A (possibly stripped down) TSIGKey object with the new values |
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\TSIGKey**](../Model/TSIGKey.md)
 
 ### Authorization
 

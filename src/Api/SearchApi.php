@@ -127,7 +127,7 @@ class SearchApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Storm\PowerDnsClient\Model\SearchResult[]|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\SearchResult[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function searchData($serverId, $q, $max, $objectType = null)
     {
@@ -147,7 +147,7 @@ class SearchApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Storm\PowerDnsClient\Model\SearchResult[]|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\SearchResult[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchDataWithHttpInfo($serverId, $q, $max, $objectType = null)
     {
@@ -202,50 +202,50 @@ class SearchApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -277,7 +277,7 @@ class SearchApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -285,7 +285,7 @@ class SearchApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -293,7 +293,7 @@ class SearchApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -301,7 +301,7 @@ class SearchApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -425,37 +425,25 @@ class SearchApi
         $multipart = false;
 
         // query params
+        if (is_array($q)) {
+            $q = ObjectSerializer::serializeCollection($q, '', true);
+        }
         if ($q !== null) {
-            if('form' === 'form' && is_array($q)) {
-                foreach($q as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['q'] = $q;
-            }
+            $queryParams['q'] = $q;
         }
         // query params
+        if (is_array($max)) {
+            $max = ObjectSerializer::serializeCollection($max, '', true);
+        }
         if ($max !== null) {
-            if('form' === 'form' && is_array($max)) {
-                foreach($max as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['max'] = $max;
-            }
+            $queryParams['max'] = $max;
         }
         // query params
+        if (is_array($objectType)) {
+            $objectType = ObjectSerializer::serializeCollection($objectType, '', true);
+        }
         if ($objectType !== null) {
-            if('form' === 'form' && is_array($objectType)) {
-                foreach($objectType as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['object_type'] = $objectType;
-            }
+            $queryParams['object_type'] = $objectType;
         }
 
 

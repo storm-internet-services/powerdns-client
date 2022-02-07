@@ -1,6 +1,6 @@
 <?php
 /**
- * TSIGKey2Test
+ * CacheFlushResultTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Storm\PowerDnsClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TSIGKey2Test Class Doc Comment
+ * CacheFlushResultTest Class Doc Comment
  *
  * @category    Class
- * @description A TSIG key that can be used to authenticate NOTIFY, AXFR, and DNSUPDATE queries.
+ * @description The result of a cache-flush
  * @package     Storm\PowerDnsClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TSIGKey2Test extends TestCase
+class CacheFlushResultTest extends TestCase
 {
 
     /**
@@ -71,54 +71,27 @@ class TSIGKey2Test extends TestCase
     }
 
     /**
-     * Test "TSIGKey2"
+     * Test "CacheFlushResult"
      */
-    public function testTSIGKey2()
+    public function testCacheFlushResult()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "count"
      */
-    public function testPropertyName()
+    public function testPropertyCount()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "result"
      */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "algorithm"
-     */
-    public function testPropertyAlgorithm()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "key"
-     */
-    public function testPropertyKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
+    public function testPropertyResult()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

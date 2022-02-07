@@ -1,6 +1,6 @@
 <?php
 /**
- * Cryptokey1
+ * SearchResultRecord
  *
  * PHP version 7.3
  *
@@ -32,10 +32,9 @@ use \ArrayAccess;
 use \Storm\PowerDnsClient\ObjectSerializer;
 
 /**
- * Cryptokey1 Class Doc Comment
+ * SearchResultRecord Class Doc Comment
  *
  * @category Class
- * @description Describes a DNSSEC cryptographic key
  * @package  Storm\PowerDnsClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +42,7 @@ use \Storm\PowerDnsClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class SearchResultRecord implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +51,7 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Cryptokey_1';
+    protected static $openAPIModelName = 'SearchResultRecord';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,17 +59,14 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'content' => 'string',
+        'disabled' => 'bool',
+        'name' => 'string',
+        'objectType' => 'string',
+        'zoneId' => 'string',
+        'zone' => 'string',
         'type' => 'string',
-        'id' => 'int',
-        'keytype' => 'string',
-        'active' => 'bool',
-        'published' => 'bool',
-        'dnskey' => 'string',
-        'ds' => 'string[]',
-        'cds' => 'string[]',
-        'privatekey' => 'string',
-        'algorithm' => 'string',
-        'bits' => 'int'
+        'ttl' => 'int'
     ];
 
     /**
@@ -81,17 +77,14 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'content' => null,
+        'disabled' => null,
+        'name' => null,
+        'objectType' => null,
+        'zoneId' => null,
+        'zone' => null,
         'type' => null,
-        'id' => null,
-        'keytype' => null,
-        'active' => null,
-        'published' => null,
-        'dnskey' => null,
-        'ds' => null,
-        'cds' => null,
-        'privatekey' => null,
-        'algorithm' => null,
-        'bits' => null
+        'ttl' => null
     ];
 
     /**
@@ -121,17 +114,14 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'content' => 'content',
+        'disabled' => 'disabled',
+        'name' => 'name',
+        'objectType' => 'object_type',
+        'zoneId' => 'zone_id',
+        'zone' => 'zone',
         'type' => 'type',
-        'id' => 'id',
-        'keytype' => 'keytype',
-        'active' => 'active',
-        'published' => 'published',
-        'dnskey' => 'dnskey',
-        'ds' => 'ds',
-        'cds' => 'cds',
-        'privatekey' => 'privatekey',
-        'algorithm' => 'algorithm',
-        'bits' => 'bits'
+        'ttl' => 'ttl'
     ];
 
     /**
@@ -140,17 +130,14 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'content' => 'setContent',
+        'disabled' => 'setDisabled',
+        'name' => 'setName',
+        'objectType' => 'setObjectType',
+        'zoneId' => 'setZoneId',
+        'zone' => 'setZone',
         'type' => 'setType',
-        'id' => 'setId',
-        'keytype' => 'setKeytype',
-        'active' => 'setActive',
-        'published' => 'setPublished',
-        'dnskey' => 'setDnskey',
-        'ds' => 'setDs',
-        'cds' => 'setCds',
-        'privatekey' => 'setPrivatekey',
-        'algorithm' => 'setAlgorithm',
-        'bits' => 'setBits'
+        'ttl' => 'setTtl'
     ];
 
     /**
@@ -159,17 +146,14 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'content' => 'getContent',
+        'disabled' => 'getDisabled',
+        'name' => 'getName',
+        'objectType' => 'getObjectType',
+        'zoneId' => 'getZoneId',
+        'zone' => 'getZone',
         'type' => 'getType',
-        'id' => 'getId',
-        'keytype' => 'getKeytype',
-        'active' => 'getActive',
-        'published' => 'getPublished',
-        'dnskey' => 'getDnskey',
-        'ds' => 'getDs',
-        'cds' => 'getCds',
-        'privatekey' => 'getPrivatekey',
-        'algorithm' => 'getAlgorithm',
-        'bits' => 'getBits'
+        'ttl' => 'getTtl'
     ];
 
     /**
@@ -213,23 +197,6 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const KEYTYPE_KSK = 'ksk';
-    const KEYTYPE_ZSK = 'zsk';
-    const KEYTYPE_CSK = 'csk';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getKeytypeAllowableValues()
-    {
-        return [
-            self::KEYTYPE_KSK,
-            self::KEYTYPE_ZSK,
-            self::KEYTYPE_CSK,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -246,17 +213,14 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['content'] = $data['content'] ?? null;
+        $this->container['disabled'] = $data['disabled'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['objectType'] = $data['objectType'] ?? null;
+        $this->container['zoneId'] = $data['zoneId'] ?? null;
+        $this->container['zone'] = $data['zone'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['keytype'] = $data['keytype'] ?? null;
-        $this->container['active'] = $data['active'] ?? null;
-        $this->container['published'] = $data['published'] ?? null;
-        $this->container['dnskey'] = $data['dnskey'] ?? null;
-        $this->container['ds'] = $data['ds'] ?? null;
-        $this->container['cds'] = $data['cds'] ?? null;
-        $this->container['privatekey'] = $data['privatekey'] ?? null;
-        $this->container['algorithm'] = $data['algorithm'] ?? null;
-        $this->container['bits'] = $data['bits'] ?? null;
+        $this->container['ttl'] = $data['ttl'] ?? null;
     }
 
     /**
@@ -267,15 +231,6 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getKeytypeAllowableValues();
-        if (!is_null($this->container['keytype']) && !in_array($this->container['keytype'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'keytype', must be one of '%s'",
-                $this->container['keytype'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -293,6 +248,150 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets content
+     *
+     * @return string|null
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param string|null $content content
+     *
+     * @return self
+     */
+    public function setContent($content)
+    {
+        $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets disabled
+     *
+     * @return bool|null
+     */
+    public function getDisabled()
+    {
+        return $this->container['disabled'];
+    }
+
+    /**
+     * Sets disabled
+     *
+     * @param bool|null $disabled disabled
+     *
+     * @return self
+     */
+    public function setDisabled($disabled)
+    {
+        $this->container['disabled'] = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets objectType
+     *
+     * @return string|null
+     */
+    public function getObjectType()
+    {
+        return $this->container['objectType'];
+    }
+
+    /**
+     * Sets objectType
+     *
+     * @param string|null $objectType set to \"record\"
+     *
+     * @return self
+     */
+    public function setObjectType($objectType)
+    {
+        $this->container['objectType'] = $objectType;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoneId
+     *
+     * @return string|null
+     */
+    public function getZoneId()
+    {
+        return $this->container['zoneId'];
+    }
+
+    /**
+     * Sets zoneId
+     *
+     * @param string|null $zoneId zoneId
+     *
+     * @return self
+     */
+    public function setZoneId($zoneId)
+    {
+        $this->container['zoneId'] = $zoneId;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone
+     *
+     * @return string|null
+     */
+    public function getZone()
+    {
+        return $this->container['zone'];
+    }
+
+    /**
+     * Sets zone
+     *
+     * @param string|null $zone zone
+     *
+     * @return self
+     */
+    public function setZone($zone)
+    {
+        $this->container['zone'] = $zone;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string|null
@@ -305,7 +404,7 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type set to \"Cryptokey\"
+     * @param string|null $type type
      *
      * @return self
      */
@@ -317,251 +416,25 @@ class Cryptokey1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets ttl
      *
      * @return int|null
      */
-    public function getId()
+    public function getTtl()
     {
-        return $this->container['id'];
+        return $this->container['ttl'];
     }
 
     /**
-     * Sets id
+     * Sets ttl
      *
-     * @param int|null $id The internal identifier, read only
+     * @param int|null $ttl ttl
      *
      * @return self
      */
-    public function setId($id)
+    public function setTtl($ttl)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets keytype
-     *
-     * @return string|null
-     */
-    public function getKeytype()
-    {
-        return $this->container['keytype'];
-    }
-
-    /**
-     * Sets keytype
-     *
-     * @param string|null $keytype keytype
-     *
-     * @return self
-     */
-    public function setKeytype($keytype)
-    {
-        $allowedValues = $this->getKeytypeAllowableValues();
-        if (!is_null($keytype) && !in_array($keytype, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'keytype', must be one of '%s'",
-                    $keytype,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['keytype'] = $keytype;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool|null
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool|null $active Whether or not the key is in active use
-     *
-     * @return self
-     */
-    public function setActive($active)
-    {
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets published
-     *
-     * @return bool|null
-     */
-    public function getPublished()
-    {
-        return $this->container['published'];
-    }
-
-    /**
-     * Sets published
-     *
-     * @param bool|null $published Whether or not the DNSKEY record is published in the zone
-     *
-     * @return self
-     */
-    public function setPublished($published)
-    {
-        $this->container['published'] = $published;
-
-        return $this;
-    }
-
-    /**
-     * Gets dnskey
-     *
-     * @return string|null
-     */
-    public function getDnskey()
-    {
-        return $this->container['dnskey'];
-    }
-
-    /**
-     * Sets dnskey
-     *
-     * @param string|null $dnskey The DNSKEY record for this key
-     *
-     * @return self
-     */
-    public function setDnskey($dnskey)
-    {
-        $this->container['dnskey'] = $dnskey;
-
-        return $this;
-    }
-
-    /**
-     * Gets ds
-     *
-     * @return string[]|null
-     */
-    public function getDs()
-    {
-        return $this->container['ds'];
-    }
-
-    /**
-     * Sets ds
-     *
-     * @param string[]|null $ds An array of DS records for this key
-     *
-     * @return self
-     */
-    public function setDs($ds)
-    {
-        $this->container['ds'] = $ds;
-
-        return $this;
-    }
-
-    /**
-     * Gets cds
-     *
-     * @return string[]|null
-     */
-    public function getCds()
-    {
-        return $this->container['cds'];
-    }
-
-    /**
-     * Sets cds
-     *
-     * @param string[]|null $cds An array of DS records for this key, filtered by CDS publication settings
-     *
-     * @return self
-     */
-    public function setCds($cds)
-    {
-        $this->container['cds'] = $cds;
-
-        return $this;
-    }
-
-    /**
-     * Gets privatekey
-     *
-     * @return string|null
-     */
-    public function getPrivatekey()
-    {
-        return $this->container['privatekey'];
-    }
-
-    /**
-     * Sets privatekey
-     *
-     * @param string|null $privatekey The private key in ISC format
-     *
-     * @return self
-     */
-    public function setPrivatekey($privatekey)
-    {
-        $this->container['privatekey'] = $privatekey;
-
-        return $this;
-    }
-
-    /**
-     * Gets algorithm
-     *
-     * @return string|null
-     */
-    public function getAlgorithm()
-    {
-        return $this->container['algorithm'];
-    }
-
-    /**
-     * Sets algorithm
-     *
-     * @param string|null $algorithm The name of the algorithm of the key, should be a mnemonic
-     *
-     * @return self
-     */
-    public function setAlgorithm($algorithm)
-    {
-        $this->container['algorithm'] = $algorithm;
-
-        return $this;
-    }
-
-    /**
-     * Gets bits
-     *
-     * @return int|null
-     */
-    public function getBits()
-    {
-        return $this->container['bits'];
-    }
-
-    /**
-     * Sets bits
-     *
-     * @param int|null $bits The size of the key
-     *
-     * @return self
-     */
-    public function setBits($bits)
-    {
-        $this->container['bits'] = $bits;
+        $this->container['ttl'] = $ttl;
 
         return $this;
     }

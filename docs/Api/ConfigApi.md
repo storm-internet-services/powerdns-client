@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 ## `getConfigSetting()`
 
 ```php
-getConfigSetting($serverId, $configSettingName): object
+getConfigSetting($serverId, $configSettingName): \Storm\PowerDnsClient\Model\ConfigSetting
 ```
 
 Returns a specific ConfigSetting for a single server
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\ConfigSetting**](../Model/ConfigSetting.md)
 
 ### Authorization
 

@@ -122,11 +122,11 @@ class ZonecryptokeyApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey1 $cryptokey cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey Add a Cryptokey (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\Cryptokey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function createCryptokey($serverId, $zoneId, $cryptokey)
     {
@@ -141,11 +141,11 @@ class ZonecryptokeyApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey1 $cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey Add a Cryptokey (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\Cryptokey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCryptokeyWithHttpInfo($serverId, $zoneId, $cryptokey)
     {
@@ -188,68 +188,68 @@ class ZonecryptokeyApi
 
             switch($statusCode) {
                 case 201:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Cryptokey' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Cryptokey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\Cryptokey';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -267,7 +267,7 @@ class ZonecryptokeyApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Cryptokey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -275,7 +275,7 @@ class ZonecryptokeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -283,7 +283,7 @@ class ZonecryptokeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -291,7 +291,7 @@ class ZonecryptokeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -299,7 +299,7 @@ class ZonecryptokeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -316,7 +316,7 @@ class ZonecryptokeyApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey1 $cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey Add a Cryptokey (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -338,14 +338,14 @@ class ZonecryptokeyApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey1 $cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey Add a Cryptokey (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createCryptokeyAsyncWithHttpInfo($serverId, $zoneId, $cryptokey)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\Cryptokey';
         $request = $this->createCryptokeyRequest($serverId, $zoneId, $cryptokey);
 
         return $this->client
@@ -386,7 +386,7 @@ class ZonecryptokeyApi
      *
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey1 $cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey Add a Cryptokey (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -584,7 +584,7 @@ class ZonecryptokeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -592,7 +592,7 @@ class ZonecryptokeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -600,7 +600,7 @@ class ZonecryptokeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -608,7 +608,7 @@ class ZonecryptokeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -819,7 +819,7 @@ class ZonecryptokeyApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\Cryptokey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function getCryptokey($serverId, $zoneId, $cryptokeyId)
     {
@@ -838,7 +838,7 @@ class ZonecryptokeyApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\Cryptokey|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCryptokeyWithHttpInfo($serverId, $zoneId, $cryptokeyId)
     {
@@ -881,68 +881,68 @@ class ZonecryptokeyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Cryptokey' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Cryptokey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\Cryptokey';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -960,7 +960,7 @@ class ZonecryptokeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Cryptokey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -968,7 +968,7 @@ class ZonecryptokeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -976,7 +976,7 @@ class ZonecryptokeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -984,7 +984,7 @@ class ZonecryptokeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -992,7 +992,7 @@ class ZonecryptokeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1038,7 +1038,7 @@ class ZonecryptokeyApi
      */
     public function getCryptokeyAsyncWithHttpInfo($serverId, $zoneId, $cryptokeyId)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\Cryptokey';
         $request = $this->getCryptokeyRequest($serverId, $zoneId, $cryptokeyId);
 
         return $this->client
@@ -1212,7 +1212,7 @@ class ZonecryptokeyApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Storm\PowerDnsClient\Model\Cryptokey[]|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\Cryptokey[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function listCryptokeys($serverId, $zoneId)
     {
@@ -1230,7 +1230,7 @@ class ZonecryptokeyApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Storm\PowerDnsClient\Model\Cryptokey[]|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\Cryptokey[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listCryptokeysWithHttpInfo($serverId, $zoneId)
     {
@@ -1285,50 +1285,50 @@ class ZonecryptokeyApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1360,7 +1360,7 @@ class ZonecryptokeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1368,7 +1368,7 @@ class ZonecryptokeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1376,7 +1376,7 @@ class ZonecryptokeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1384,7 +1384,7 @@ class ZonecryptokeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1585,7 +1585,7 @@ class ZonecryptokeyApi
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId zoneId (required)
      * @param  string $cryptokeyId Cryptokey to manipulate (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey2 $cryptokey cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey the Cryptokey (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1604,7 +1604,7 @@ class ZonecryptokeyApi
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
      * @param  string $cryptokeyId Cryptokey to manipulate (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey2 $cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey the Cryptokey (required)
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1656,7 +1656,7 @@ class ZonecryptokeyApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1664,7 +1664,7 @@ class ZonecryptokeyApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1672,7 +1672,7 @@ class ZonecryptokeyApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1680,7 +1680,7 @@ class ZonecryptokeyApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1698,7 +1698,7 @@ class ZonecryptokeyApi
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
      * @param  string $cryptokeyId Cryptokey to manipulate (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey2 $cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey the Cryptokey (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1721,7 +1721,7 @@ class ZonecryptokeyApi
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
      * @param  string $cryptokeyId Cryptokey to manipulate (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey2 $cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey the Cryptokey (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1760,7 +1760,7 @@ class ZonecryptokeyApi
      * @param  string $serverId The id of the server to retrieve (required)
      * @param  string $zoneId (required)
      * @param  string $cryptokeyId Cryptokey to manipulate (required)
-     * @param  \Storm\PowerDnsClient\Model\Cryptokey2 $cryptokey (required)
+     * @param  \Storm\PowerDnsClient\Model\Cryptokey $cryptokey the Cryptokey (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

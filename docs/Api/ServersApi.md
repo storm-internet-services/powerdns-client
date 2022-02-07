@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `cacheFlushByName()`
 
 ```php
-cacheFlushByName($serverId, $domain): object
+cacheFlushByName($serverId, $domain): \Storm\PowerDnsClient\Model\CacheFlushResult
 ```
 
 Flush a cache-entry by name
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\CacheFlushResult**](../Model/CacheFlushResult.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 ## `listServer()`
 
 ```php
-listServer($serverId): object
+listServer($serverId): \Storm\PowerDnsClient\Model\Server
 ```
 
 List a server
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Storm\PowerDnsClient\Model\Server**](../Model/Server.md)
 
 ### Authorization
 

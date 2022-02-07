@@ -1,6 +1,6 @@
 <?php
 /**
- * TSIGKey2
+ * CacheFlushResult
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \Storm\PowerDnsClient\ObjectSerializer;
 
 /**
- * TSIGKey2 Class Doc Comment
+ * CacheFlushResult Class Doc Comment
  *
  * @category Class
- * @description A TSIG key that can be used to authenticate NOTIFY, AXFR, and DNSUPDATE queries.
+ * @description The result of a cache-flush
  * @package  Storm\PowerDnsClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \Storm\PowerDnsClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
+class CacheFlushResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TSIGKey_2';
+    protected static $openAPIModelName = 'CacheFlushResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,11 +60,8 @@ class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'id' => 'string',
-        'algorithm' => 'string',
-        'key' => 'string',
-        'type' => 'string'
+        'count' => 'float',
+        'result' => 'string'
     ];
 
     /**
@@ -75,11 +72,8 @@ class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'id' => null,
-        'algorithm' => null,
-        'key' => null,
-        'type' => null
+        'count' => null,
+        'result' => null
     ];
 
     /**
@@ -109,11 +103,8 @@ class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'id' => 'id',
-        'algorithm' => 'algorithm',
-        'key' => 'key',
-        'type' => 'type'
+        'count' => 'count',
+        'result' => 'result'
     ];
 
     /**
@@ -122,11 +113,8 @@ class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'id' => 'setId',
-        'algorithm' => 'setAlgorithm',
-        'key' => 'setKey',
-        'type' => 'setType'
+        'count' => 'setCount',
+        'result' => 'setResult'
     ];
 
     /**
@@ -135,11 +123,8 @@ class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'id' => 'getId',
-        'algorithm' => 'getAlgorithm',
-        'key' => 'getKey',
-        'type' => 'getType'
+        'count' => 'getCount',
+        'result' => 'getResult'
     ];
 
     /**
@@ -199,11 +184,8 @@ class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['algorithm'] = $data['algorithm'] ?? null;
-        $this->container['key'] = $data['key'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        $this->container['count'] = $data['count'] ?? null;
+        $this->container['result'] = $data['result'] ?? null;
     }
 
     /**
@@ -231,121 +213,49 @@ class TSIGKey2 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets count
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getName()
+    public function getCount()
     {
-        return $this->container['name'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets name
+     * Sets count
      *
-     * @param string|null $name The name of the key
+     * @param float|null $count Amount of entries flushed
      *
      * @return self
      */
-    public function setName($name)
+    public function setCount($count)
     {
-        $this->container['name'] = $name;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets result
      *
      * @return string|null
      */
-    public function getId()
+    public function getResult()
     {
-        return $this->container['id'];
+        return $this->container['result'];
     }
 
     /**
-     * Sets id
+     * Sets result
      *
-     * @param string|null $id The ID for this key, used in the TSIGkey URL endpoint.
+     * @param string|null $result A message about the result like \"Flushed cache\"
      *
      * @return self
      */
-    public function setId($id)
+    public function setResult($result)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets algorithm
-     *
-     * @return string|null
-     */
-    public function getAlgorithm()
-    {
-        return $this->container['algorithm'];
-    }
-
-    /**
-     * Sets algorithm
-     *
-     * @param string|null $algorithm The algorithm of the TSIG key
-     *
-     * @return self
-     */
-    public function setAlgorithm($algorithm)
-    {
-        $this->container['algorithm'] = $algorithm;
-
-        return $this;
-    }
-
-    /**
-     * Gets key
-     *
-     * @return string|null
-     */
-    public function getKey()
-    {
-        return $this->container['key'];
-    }
-
-    /**
-     * Sets key
-     *
-     * @param string|null $key The Base64 encoded secret key, empty when listing keys. MAY be empty when POSTing to have the server generate the key material
-     *
-     * @return self
-     */
-    public function setKey($key)
-    {
-        $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Set to \"TSIGKey\"
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['result'] = $result;
 
         return $this;
     }

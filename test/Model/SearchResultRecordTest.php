@@ -1,6 +1,6 @@
 <?php
 /**
- * Cryptokey1Test
+ * SearchResultRecordTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Storm\PowerDnsClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Cryptokey1Test Class Doc Comment
+ * SearchResultRecordTest Class Doc Comment
  *
  * @category    Class
- * @description Describes a DNSSEC cryptographic key
+ * @description SearchResultRecord
  * @package     Storm\PowerDnsClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class Cryptokey1Test extends TestCase
+class SearchResultRecordTest extends TestCase
 {
 
     /**
@@ -71,9 +71,63 @@ class Cryptokey1Test extends TestCase
     }
 
     /**
-     * Test "Cryptokey1"
+     * Test "SearchResultRecord"
      */
-    public function testCryptokey1()
+    public function testSearchResultRecord()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "content"
+     */
+    public function testPropertyContent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "disabled"
+     */
+    public function testPropertyDisabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "objectType"
+     */
+    public function testPropertyObjectType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "zoneId"
+     */
+    public function testPropertyZoneId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "zone"
+     */
+    public function testPropertyZone()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -89,90 +143,9 @@ class Cryptokey1Test extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "ttl"
      */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "keytype"
-     */
-    public function testPropertyKeytype()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "active"
-     */
-    public function testPropertyActive()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "published"
-     */
-    public function testPropertyPublished()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "dnskey"
-     */
-    public function testPropertyDnskey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "ds"
-     */
-    public function testPropertyDs()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "cds"
-     */
-    public function testPropertyCds()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "privatekey"
-     */
-    public function testPropertyPrivatekey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "algorithm"
-     */
-    public function testPropertyAlgorithm()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "bits"
-     */
-    public function testPropertyBits()
+    public function testPropertyTtl()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

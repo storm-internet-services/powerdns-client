@@ -125,7 +125,7 @@ class ServersApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\CacheFlushResult|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function cacheFlushByName($serverId, $domain)
     {
@@ -143,7 +143,7 @@ class ServersApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\CacheFlushResult|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function cacheFlushByNameWithHttpInfo($serverId, $domain)
     {
@@ -186,68 +186,68 @@ class ServersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\CacheFlushResult' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\CacheFlushResult', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\CacheFlushResult';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -265,7 +265,7 @@ class ServersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\CacheFlushResult',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -273,7 +273,7 @@ class ServersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -281,7 +281,7 @@ class ServersApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -289,7 +289,7 @@ class ServersApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -297,7 +297,7 @@ class ServersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -341,7 +341,7 @@ class ServersApi
      */
     public function cacheFlushByNameAsyncWithHttpInfo($serverId, $domain)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\CacheFlushResult';
         $request = $this->cacheFlushByNameRequest($serverId, $domain);
 
         return $this->client
@@ -409,15 +409,11 @@ class ServersApi
         $multipart = false;
 
         // query params
+        if (is_array($domain)) {
+            $domain = ObjectSerializer::serializeCollection($domain, '', true);
+        }
         if ($domain !== null) {
-            if('form' === 'form' && is_array($domain)) {
-                foreach($domain as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['domain'] = $domain;
-            }
+            $queryParams['domain'] = $domain;
         }
 
 
@@ -502,7 +498,7 @@ class ServersApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\Server|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function listServer($serverId)
     {
@@ -519,7 +515,7 @@ class ServersApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\Server|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listServerWithHttpInfo($serverId)
     {
@@ -562,68 +558,68 @@ class ServersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Server' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Server', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Storm\PowerDnsClient\Model\Server';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -641,7 +637,7 @@ class ServersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Server',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -649,7 +645,7 @@ class ServersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -657,7 +653,7 @@ class ServersApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -665,7 +661,7 @@ class ServersApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -673,7 +669,7 @@ class ServersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -715,7 +711,7 @@ class ServersApi
      */
     public function listServerAsyncWithHttpInfo($serverId)
     {
-        $returnType = 'object';
+        $returnType = '\Storm\PowerDnsClient\Model\Server';
         $request = $this->listServerRequest($serverId);
 
         return $this->client
@@ -857,7 +853,7 @@ class ServersApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Storm\PowerDnsClient\Model\Server[]|object|object|object|object
+     * @return \Storm\PowerDnsClient\Model\Server[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error
      */
     public function listServers()
     {
@@ -873,7 +869,7 @@ class ServersApi
      *
      * @throws \Storm\PowerDnsClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Storm\PowerDnsClient\Model\Server[]|object|object|object|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Storm\PowerDnsClient\Model\Server[]|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error|\Storm\PowerDnsClient\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listServersWithHttpInfo()
     {
@@ -928,50 +924,50 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Storm\PowerDnsClient\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Storm\PowerDnsClient\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1003,7 +999,7 @@ class ServersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1011,7 +1007,7 @@ class ServersApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1019,7 +1015,7 @@ class ServersApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1027,7 +1023,7 @@ class ServersApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Storm\PowerDnsClient\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

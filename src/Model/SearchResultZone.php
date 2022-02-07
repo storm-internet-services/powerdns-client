@@ -1,6 +1,6 @@
 <?php
 /**
- * Metadata2
+ * SearchResultZone
  *
  * PHP version 7.3
  *
@@ -32,10 +32,9 @@ use \ArrayAccess;
 use \Storm\PowerDnsClient\ObjectSerializer;
 
 /**
- * Metadata2 Class Doc Comment
+ * SearchResultZone Class Doc Comment
  *
  * @category Class
- * @description Represents zone metadata
  * @package  Storm\PowerDnsClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +42,7 @@ use \Storm\PowerDnsClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
+class SearchResultZone implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +51,7 @@ class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Metadata_2';
+    protected static $openAPIModelName = 'SearchResultZone';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +59,9 @@ class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'kind' => 'string',
-        'metadata' => 'string[]'
+        'name' => 'string',
+        'objectType' => 'string',
+        'zoneId' => 'string'
     ];
 
     /**
@@ -72,8 +72,9 @@ class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'kind' => null,
-        'metadata' => null
+        'name' => null,
+        'objectType' => null,
+        'zoneId' => null
     ];
 
     /**
@@ -103,8 +104,9 @@ class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'kind' => 'kind',
-        'metadata' => 'metadata'
+        'name' => 'name',
+        'objectType' => 'object_type',
+        'zoneId' => 'zone_id'
     ];
 
     /**
@@ -113,8 +115,9 @@ class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'kind' => 'setKind',
-        'metadata' => 'setMetadata'
+        'name' => 'setName',
+        'objectType' => 'setObjectType',
+        'zoneId' => 'setZoneId'
     ];
 
     /**
@@ -123,8 +126,9 @@ class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'kind' => 'getKind',
-        'metadata' => 'getMetadata'
+        'name' => 'getName',
+        'objectType' => 'getObjectType',
+        'zoneId' => 'getZoneId'
     ];
 
     /**
@@ -184,8 +188,9 @@ class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['kind'] = $data['kind'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['objectType'] = $data['objectType'] ?? null;
+        $this->container['zoneId'] = $data['zoneId'] ?? null;
     }
 
     /**
@@ -213,49 +218,73 @@ class Metadata2 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets kind
+     * Gets name
      *
      * @return string|null
      */
-    public function getKind()
+    public function getName()
     {
-        return $this->container['kind'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets kind
+     * Sets name
      *
-     * @param string|null $kind Name of the metadata
+     * @param string|null $name name
      *
      * @return self
      */
-    public function setKind($kind)
+    public function setName($name)
     {
-        $this->container['kind'] = $kind;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets objectType
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getMetadata()
+    public function getObjectType()
     {
-        return $this->container['metadata'];
+        return $this->container['objectType'];
     }
 
     /**
-     * Sets metadata
+     * Sets objectType
      *
-     * @param string[]|null $metadata Array with all values for this metadata kind.
+     * @param string|null $objectType set to \"zone\"
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setObjectType($objectType)
     {
-        $this->container['metadata'] = $metadata;
+        $this->container['objectType'] = $objectType;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoneId
+     *
+     * @return string|null
+     */
+    public function getZoneId()
+    {
+        return $this->container['zoneId'];
+    }
+
+    /**
+     * Sets zoneId
+     *
+     * @param string|null $zoneId zoneId
+     *
+     * @return self
+     */
+    public function setZoneId($zoneId)
+    {
+        $this->container['zoneId'] = $zoneId;
 
         return $this;
     }

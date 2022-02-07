@@ -1,6 +1,6 @@
 <?php
 /**
- * Metadata2Test
+ * ErrorTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Storm\PowerDnsClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Metadata2Test Class Doc Comment
+ * ErrorTest Class Doc Comment
  *
  * @category    Class
- * @description Represents zone metadata
+ * @description Returned when the server encounters an error, either in client input or internally
  * @package     Storm\PowerDnsClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class Metadata2Test extends TestCase
+class ErrorTest extends TestCase
 {
 
     /**
@@ -71,27 +71,27 @@ class Metadata2Test extends TestCase
     }
 
     /**
-     * Test "Metadata2"
+     * Test "Error"
      */
-    public function testMetadata2()
+    public function testError()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "kind"
+     * Test attribute "error"
      */
-    public function testPropertyKind()
+    public function testPropertyError()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "metadata"
+     * Test attribute "errors"
      */
-    public function testPropertyMetadata()
+    public function testPropertyErrors()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

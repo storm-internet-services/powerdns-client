@@ -1,6 +1,6 @@
 <?php
 /**
- * TSIGKey1
+ * SearchResultComment
  *
  * PHP version 7.3
  *
@@ -32,10 +32,9 @@ use \ArrayAccess;
 use \Storm\PowerDnsClient\ObjectSerializer;
 
 /**
- * TSIGKey1 Class Doc Comment
+ * SearchResultComment Class Doc Comment
  *
  * @category Class
- * @description A TSIG key that can be used to authenticate NOTIFY, AXFR, and DNSUPDATE queries.
  * @package  Storm\PowerDnsClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +42,7 @@ use \Storm\PowerDnsClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class SearchResultComment implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +51,7 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TSIGKey_1';
+    protected static $openAPIModelName = 'SearchResultComment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,11 +59,11 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'content' => 'string',
         'name' => 'string',
-        'id' => 'string',
-        'algorithm' => 'string',
-        'key' => 'string',
-        'type' => 'string'
+        'objectType' => 'string',
+        'zoneId' => 'string',
+        'zone' => 'string'
     ];
 
     /**
@@ -75,11 +74,11 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'content' => null,
         'name' => null,
-        'id' => null,
-        'algorithm' => null,
-        'key' => null,
-        'type' => null
+        'objectType' => null,
+        'zoneId' => null,
+        'zone' => null
     ];
 
     /**
@@ -109,11 +108,11 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'content' => 'content',
         'name' => 'name',
-        'id' => 'id',
-        'algorithm' => 'algorithm',
-        'key' => 'key',
-        'type' => 'type'
+        'objectType' => 'object_type',
+        'zoneId' => 'zone_id',
+        'zone' => 'zone'
     ];
 
     /**
@@ -122,11 +121,11 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'content' => 'setContent',
         'name' => 'setName',
-        'id' => 'setId',
-        'algorithm' => 'setAlgorithm',
-        'key' => 'setKey',
-        'type' => 'setType'
+        'objectType' => 'setObjectType',
+        'zoneId' => 'setZoneId',
+        'zone' => 'setZone'
     ];
 
     /**
@@ -135,11 +134,11 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'content' => 'getContent',
         'name' => 'getName',
-        'id' => 'getId',
-        'algorithm' => 'getAlgorithm',
-        'key' => 'getKey',
-        'type' => 'getType'
+        'objectType' => 'getObjectType',
+        'zoneId' => 'getZoneId',
+        'zone' => 'getZone'
     ];
 
     /**
@@ -199,11 +198,11 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['content'] = $data['content'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['algorithm'] = $data['algorithm'] ?? null;
-        $this->container['key'] = $data['key'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        $this->container['objectType'] = $data['objectType'] ?? null;
+        $this->container['zoneId'] = $data['zoneId'] ?? null;
+        $this->container['zone'] = $data['zone'] ?? null;
     }
 
     /**
@@ -231,6 +230,30 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets content
+     *
+     * @return string|null
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param string|null $content content
+     *
+     * @return self
+     */
+    public function setContent($content)
+    {
+        $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -243,7 +266,7 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of the key
+     * @param string|null $name name
      *
      * @return self
      */
@@ -255,97 +278,73 @@ class TSIGKey1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets objectType
      *
      * @return string|null
      */
-    public function getId()
+    public function getObjectType()
     {
-        return $this->container['id'];
+        return $this->container['objectType'];
     }
 
     /**
-     * Sets id
+     * Sets objectType
      *
-     * @param string|null $id The ID for this key, used in the TSIGkey URL endpoint.
+     * @param string|null $objectType set to \"comment\"
      *
      * @return self
      */
-    public function setId($id)
+    public function setObjectType($objectType)
     {
-        $this->container['id'] = $id;
+        $this->container['objectType'] = $objectType;
 
         return $this;
     }
 
     /**
-     * Gets algorithm
+     * Gets zoneId
      *
      * @return string|null
      */
-    public function getAlgorithm()
+    public function getZoneId()
     {
-        return $this->container['algorithm'];
+        return $this->container['zoneId'];
     }
 
     /**
-     * Sets algorithm
+     * Sets zoneId
      *
-     * @param string|null $algorithm The algorithm of the TSIG key
+     * @param string|null $zoneId zoneId
      *
      * @return self
      */
-    public function setAlgorithm($algorithm)
+    public function setZoneId($zoneId)
     {
-        $this->container['algorithm'] = $algorithm;
+        $this->container['zoneId'] = $zoneId;
 
         return $this;
     }
 
     /**
-     * Gets key
+     * Gets zone
      *
      * @return string|null
      */
-    public function getKey()
+    public function getZone()
     {
-        return $this->container['key'];
+        return $this->container['zone'];
     }
 
     /**
-     * Sets key
+     * Sets zone
      *
-     * @param string|null $key The Base64 encoded secret key, empty when listing keys. MAY be empty when POSTing to have the server generate the key material
+     * @param string|null $zone zone
      *
      * @return self
      */
-    public function setKey($key)
+    public function setZone($zone)
     {
-        $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Set to \"TSIGKey\"
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['zone'] = $zone;
 
         return $this;
     }

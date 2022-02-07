@@ -1,10 +1,11 @@
-# # Metadata1
+# # StatisticItem
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **string** | Name of the metadata | [optional]
-**metadata** | **string[]** | Array with all values for this metadata kind. | [optional]
+**name** | **string** | Item name | [optional]
+**type** | **string** | set to \&quot;StatisticItem\&quot; | [optional]
+**value** | **string** | Item value | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

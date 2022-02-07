@@ -1,6 +1,6 @@
 <?php
 /**
- * Cryptokey2Test
+ * SearchResultCommentTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Storm\PowerDnsClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Cryptokey2Test Class Doc Comment
+ * SearchResultCommentTest Class Doc Comment
  *
  * @category    Class
- * @description Describes a DNSSEC cryptographic key
+ * @description SearchResultComment
  * @package     Storm\PowerDnsClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class Cryptokey2Test extends TestCase
+class SearchResultCommentTest extends TestCase
 {
 
     /**
@@ -71,108 +71,54 @@ class Cryptokey2Test extends TestCase
     }
 
     /**
-     * Test "Cryptokey2"
+     * Test "SearchResultComment"
      */
-    public function testCryptokey2()
+    public function testSearchResultComment()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "content"
      */
-    public function testPropertyType()
+    public function testPropertyContent()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "name"
      */
-    public function testPropertyId()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "keytype"
+     * Test attribute "objectType"
      */
-    public function testPropertyKeytype()
+    public function testPropertyObjectType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "active"
+     * Test attribute "zoneId"
      */
-    public function testPropertyActive()
+    public function testPropertyZoneId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "published"
+     * Test attribute "zone"
      */
-    public function testPropertyPublished()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "dnskey"
-     */
-    public function testPropertyDnskey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "ds"
-     */
-    public function testPropertyDs()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "cds"
-     */
-    public function testPropertyCds()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "privatekey"
-     */
-    public function testPropertyPrivatekey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "algorithm"
-     */
-    public function testPropertyAlgorithm()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "bits"
-     */
-    public function testPropertyBits()
+    public function testPropertyZone()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

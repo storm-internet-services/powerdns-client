@@ -1,4 +1,4 @@
-# # AutoprimaryServer
+# # Autoprimary
 
 ## Properties
 

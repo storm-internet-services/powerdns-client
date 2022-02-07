@@ -1,6 +1,6 @@
 <?php
 /**
- * AutoprimaryServer
+ * MapStatisticItem
  *
  * PHP version 7.3
  *
@@ -32,10 +32,9 @@ use \ArrayAccess;
 use \Storm\PowerDnsClient\ObjectSerializer;
 
 /**
- * AutoprimaryServer Class Doc Comment
+ * MapStatisticItem Class Doc Comment
  *
  * @category Class
- * @description An autoprimary server that can provision new domains.
  * @package  Storm\PowerDnsClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +42,7 @@ use \Storm\PowerDnsClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializable
+class MapStatisticItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +51,7 @@ class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Autoprimary_server';
+    protected static $openAPIModelName = 'MapStatisticItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +59,9 @@ class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ip' => 'string',
-        'nameserver' => 'string',
-        'account' => 'string'
+        'name' => 'string',
+        'type' => 'string',
+        'value' => '\Storm\PowerDnsClient\Model\SimpleStatisticItem[]'
     ];
 
     /**
@@ -73,9 +72,9 @@ class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ip' => null,
-        'nameserver' => null,
-        'account' => null
+        'name' => null,
+        'type' => null,
+        'value' => null
     ];
 
     /**
@@ -105,9 +104,9 @@ class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'ip' => 'ip',
-        'nameserver' => 'nameserver',
-        'account' => 'account'
+        'name' => 'name',
+        'type' => 'type',
+        'value' => 'value'
     ];
 
     /**
@@ -116,9 +115,9 @@ class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'ip' => 'setIp',
-        'nameserver' => 'setNameserver',
-        'account' => 'setAccount'
+        'name' => 'setName',
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -127,9 +126,9 @@ class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'ip' => 'getIp',
-        'nameserver' => 'getNameserver',
-        'account' => 'getAccount'
+        'name' => 'getName',
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -189,9 +188,9 @@ class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['ip'] = $data['ip'] ?? null;
-        $this->container['nameserver'] = $data['nameserver'] ?? null;
-        $this->container['account'] = $data['account'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -219,73 +218,73 @@ class AutoprimaryServer implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets ip
+     * Gets name
      *
      * @return string|null
      */
-    public function getIp()
+    public function getName()
     {
-        return $this->container['ip'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets ip
+     * Sets name
      *
-     * @param string|null $ip IP address of the autoprimary server
+     * @param string|null $name Item name
      *
      * @return self
      */
-    public function setIp($ip)
+    public function setName($name)
     {
-        $this->container['ip'] = $ip;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets nameserver
+     * Gets type
      *
      * @return string|null
      */
-    public function getNameserver()
+    public function getType()
     {
-        return $this->container['nameserver'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets nameserver
+     * Sets type
      *
-     * @param string|null $nameserver DNS name of the autoprimary server
+     * @param string|null $type Set to \"MapStatisticItem\"
      *
      * @return self
      */
-    public function setNameserver($nameserver)
+    public function setType($type)
     {
-        $this->container['nameserver'] = $nameserver;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets account
+     * Gets value
      *
-     * @return string|null
+     * @return \Storm\PowerDnsClient\Model\SimpleStatisticItem[]|null
      */
-    public function getAccount()
+    public function getValue()
     {
-        return $this->container['account'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets account
+     * Sets value
      *
-     * @param string|null $account Account name for the autoprimary server
+     * @param \Storm\PowerDnsClient\Model\SimpleStatisticItem[]|null $value Named values
      *
      * @return self
      */
-    public function setAccount($account)
+    public function setValue($value)
     {
-        $this->container['account'] = $account;
+        $this->container['value'] = $value;
 
         return $this;
     }
